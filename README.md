@@ -1,1 +1,1 @@
-# This is a repository when I'm trying to code using python
+# This is a repository where I'm trying to code using python
