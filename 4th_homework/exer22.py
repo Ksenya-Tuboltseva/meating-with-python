@@ -10,5 +10,5 @@ for i in range(1,m+1):
     i = int(input())
     set2.add(i)
 print(set2)
-inner = list(set1.intersection(set2))
+inner = set1.intersection(set2)
 print(sorted(inner))
