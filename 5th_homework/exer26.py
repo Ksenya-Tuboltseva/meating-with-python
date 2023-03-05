@@ -5,4 +5,4 @@ def num_degree(a,b):
         return a
     return a * num_degree(a,b-1)
 
-num_degree(A,B)
+print(num_degree(A,B))
