@@ -1,0 +1,52 @@
+import os
+phone_book = []
+path = os.path.join("C:\Users\Админ\Desktop\GeekBrains\Python\homework\phone\phones.txt")
+
+def open_file():
+    global phone_book
+    global path
+    with open(path, "r", encoding="UTF-8") as file:
+        data = file.readlines()
+        for contact in data:
+            new = contact.strip().split(";")
+            new_contact = {}
+            new_contact["name"] = new[0]
+            new_contact["phone"] = new[1]
+            new_contact["comment"] = new[2]
+            phone_book.append(new_contact)
+
+def get():
+    global phone_book
+    return phone_book
+
+def add(new_contact: dict):
+    global phone_book
+    phone_book.append(new_contact)
+
+def save_file():
+    global phone_book
+    global path
+    data = []
+    for contact in phone_book:
+        data.append(";".join(contact.values()))
+    data = "\n".join(data)
+    with open (path, "w", encoding="UTF-8") as file:
+        file.write(data)
+
+def find(find_option: str):
+    global phone_book
+    all_find = []
+    for contact in phone_book:
+        for elem in contact.values():
+            if find_option in elem:
+                all_find.append(contact)
+    return all_find
+
+def change_contact(ind: int, contact: dict):
+    global phone_book
+    phone_book.pop([ind-1])
+    phone_book.insert(ind-1, contact)
+
+def delete_contact(ind: int):
+    global phone_book
+    phone_book.pop(ind -1)
